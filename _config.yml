@@ -13,12 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Happy Code Poet Blog
+title: Code Poet's Blog
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   Study of Code Poet
-twitter_username: username
-github_username: username
+# twitter_username: username
+github_username: flowertaekk-dev
 minimal_mistakes_skin: default
 search: true
 
@@ -58,21 +58,21 @@ plugins:
 author:
   name     : "Geuntaek Kwon"
   avatar   : "/assets/images/bio-photo.jpg"
-  bio      : "My awesome biography constrained to a sentence or two goes here."
+  bio      : "Code Poet"
   location : "Tokyo, Japan"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://"
+      url: "https://flowertaekk-dev.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/flowertaekk-dev"
 
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/flowertaekk-dev"
 
 defaults:
   # _posts
