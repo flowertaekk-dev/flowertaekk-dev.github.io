@@ -14,7 +14,7 @@ toc: true
 
   * $ git log
     * -L option : 특정 함수의 history를 확인할 수 있다. 
-      * ex) $ git log -L :<function name>:<file name>
+      * ex) $ git log -L : function name : file name
     * --merge option (when conflict) : 충돌이 발생한 파일이 속한 commit만 보여준다.
     * -p option (when conflict) : 충돌이 발생한 파일의 변경사항만 볼 수 있다.
   * $ git show : 각 commit에서 수정된 코드까지 확인할 수 있다. 
