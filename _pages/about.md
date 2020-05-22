@@ -10,3 +10,6 @@ Korean developer working in Japan.
 
 **Experienced skill:** Spring Framework, React, JSF Framework, Android, AWS(Certified developer)
 {: .notice--warning}
+
+**Language:** Korean, English, Japanese
+{: .notice--success}
