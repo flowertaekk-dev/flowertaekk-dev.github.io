@@ -65,3 +65,8 @@ toc: true
 
   * $ git merge -Xignore-all-space
     * 이 옵션을 통해서 공백으로 인한 충돌을 무시할 수 있다.
+
+## diff
+
+  * $ git diff --check
+    * 추가된 공백을 확인할 수 있다. 불필요한 공백을 커밋 전에 정리할 수 있다.
