@@ -46,7 +46,7 @@ android:childDivider="#00000000"
                 android:width="1dp"
                 android:color="#dcdcdc" />
                 
-            <solid android:color="#FFF" /> <!-- 배경색 지정(여기서는 사실 큰 영향은 없음)  -->
+            <solid android:color="#00000000" /> <!-- 배경색 지정(여기서는 투명으로)  -->
         </shape>
     </item>
      
