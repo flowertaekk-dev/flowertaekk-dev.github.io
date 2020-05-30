@@ -26,12 +26,12 @@ toc: true
 ```gradle
 implementation 'com.android.support:design:28.0.0'
 ```
-  2. [Footer 리소스 구현](https://github.com/flowertaekk-dev/cloneKakaoTalk)
-  3. [Main 레이아웃 XML에 FrameLayout 추가](https://github.com/flowertaekk-dev/cloneKakaoTalk)
-  4. [Main 레이아웃 XML에 BottomNavigationView 추가](https://github.com/flowertaekk-dev/cloneKakaoTalk)
-  5. [Fragment 리소스 작성](https://github.com/flowertaekk-dev/cloneKakaoTalk)
-  6. [Fragment 클래스 작성](https://github.com/flowertaekk-dev/cloneKakaoTalk)
-  7. [MainActivity에 초기화면 설정과 Footer 클릭에 따라서 Fragment 교체가 이루어질 수 있도록 구현](https://github.com/flowertaekk-dev/cloneKakaoTalk)
+  2. [Footer 리소스 구현](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/menu/main_footer.xml)
+  3. [Main 레이아웃 XML에 FrameLayout 추가](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/layout/activity_main.xml)
+  4. [Main 레이아웃 XML에 BottomNavigationView 추가](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/layout/activity_main.xml)
+  5. [Fragment 리소스 작성](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/drawable/fragment_chatting_list_icon.xml)
+  6. [Fragment 클래스 작성](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/java/com/example/clonekakaotalk/utils/footer/FragmentChattingList.java)
+  7. [MainActivity에 초기화면 설정과 Footer 클릭에 따라서 Fragment 교체가 이루어질 수 있도록 구현](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/java/com/example/clonekakaotalk/MainActivity.java)
 
 ### 추가 작업
 
@@ -46,4 +46,5 @@ bottomNavigationView.setItemIconTintList(null);
 
 ### 생각
 
-  1. 그럼 Activity보다 Fragment만을 사용해서 앱을 구성하는 경우가 더 많겠는데?
+  * 그럼 Activity보다 Fragment만을 사용해서 앱을 구성하는 경우가 더 많겠는데?
+  * 확실히 로직이 나눠져서 관리하기 쉬워졌다.
