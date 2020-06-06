@@ -29,3 +29,7 @@ moveTaskToBack(true); // 현재 앱을 백그라운드로 이동.
 finishAndRemoveTask(); // 액티비티를 종료.
 android.os.Process.killProcess(android.os.Process.myPid()); // 프로세스 종료
 ```
+
+### 추가
+
+  * onBackPressed() 메소드를 통해서 안드로이드 자체의 '뒤로가기' 버튼을 눌렀을 때의 이벤트 처리가 가능하다.
