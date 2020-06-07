@@ -60,6 +60,10 @@ toc: true
 ## Commit 관리
 
   * git rebase -i HEAD~n
+  * git commit --amend
+    * 기존 commit 수정
+    * 실수로 --amend했을 경우 $ git reset --soft @{1} 로 되돌릴 수 있다.
+
 
 ## Merge
 
