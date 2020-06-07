@@ -24,7 +24,7 @@ toc: true
 
   1. gradle에 implements문 추가
 ```gradle
-implementation 'com.android.support:design:28.0.0'
+implementation 'com.google.android.material:material:1.0.0-rc01'
 ```
   2. [Footer 리소스 구현](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/menu/main_footer.xml)
   3. [Main 레이아웃 XML에 FrameLayout 추가](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/layout/activity_main.xml)
