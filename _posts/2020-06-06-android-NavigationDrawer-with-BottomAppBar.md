@@ -1,5 +1,5 @@
 ---
-title: "Killing Android App completely"
+title: "BottomAppBar with NavigationDrawer"
 last_modified_at: 2020-06-06
 header:
   teaser: "assets/images/markup-syntax-highlighting-teaser.jpg"
@@ -27,11 +27,14 @@ toc: true
 
 ### BottomAppBar 사용해서 NavigationDrawer 구현하는 방법
 
-  1. gradle에 모듈 추가
+  * gradle에 모듈 추가
+
 ```gradle
 implementation 'com.google.android.material:material:1.0.0-alpha1'
 ```
-  2. 최상단 Layout(여기에서는 채팅방layout)에 style추가
+
+  * 최상단 Layout(여기에서는 채팅방layout)에 style추가
+
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -41,8 +44,10 @@ implementation 'com.google.android.material:material:1.0.0-alpha1'
     tools:context=".ChattingRoomActivity"
     style="@style/Widget.MaterialComponents.BottomAppBar">
 ```
-  3. 화면 아래에 CoordinatorLayout 추가하고, 그 안에 BottomAppBar 추가
+
+  * 화면 아래에 CoordinatorLayout 추가하고, 그 안에 BottomAppBar 추가
     * BottomAppBar는 CoordinatorLayout안에서만 작성할 수 있다는 경고가 떠서 어쩔수 없이 CoordinatorLayout사용.
+
 ```xml
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/chatting_room_footer_container"
@@ -62,16 +67,20 @@ implementation 'com.google.android.material:material:1.0.0-alpha1'
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
-  4. res/menu에 리소스 추가
+
+  * res/menu에 리소스 추가
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- 메뉴 -->
 </menu>
 ```
-  5. Blank Fragment생성
-  6. [상속을 Fragment가 아니라 BottomSheetDialogFragment를 상속하도록 변경](https://github.com/flowertaekk-dev/cloneKakaoTalk)
-  7. [새로 생성된 Fragment layout에 NavigationView추가](https://github.com/flowertaekk-dev/cloneKakaoTalk)
+
+  * Blank Fragment생성
+  * 상속을 Fragment가 아니라 BottomSheetDialogFragment를 상속하도록 변경
+  * 새로 생성된 Fragment layout에 NavigationView추가
+
 ```xml
 <com.google.android.material.navigation.NavigationView
         android:id="@+id/chatting_bottom_drawer_menu"
@@ -79,12 +88,16 @@ implementation 'com.google.android.material:material:1.0.0-alpha1'
         android:layout_height="match_parent"
         app:menu="@menu/chatting_bottom_drawer_menu"/>
 ```
-  8. 추가한 NavigationView에 menu지정
+
+  * 추가한 NavigationView에 menu지정
+
 ```xml
 app:menu="@menu/chatting_bottom_drawer_menu"
 ```
-  9. [추가한 Blank Fragment에 NavigationItemSelectedListener 구현](https://github.com/flowertaekk-dev/cloneKakaoTalk)
-  10. [Activity에서 BottomAppBar onClickListener 구현](https://github.com/flowertaekk-dev/cloneKakaoTalk)
+
+  * 추가한 Blank Fragment에 NavigationItemSelectedListener 구현
+  * Activity에서 BottomAppBar onClickListener 구현
+
 ```java
         BottomAppBar bottomAppBar = findViewById(R.id.chatting_room_footer);
         bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
