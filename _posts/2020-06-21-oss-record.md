@@ -29,9 +29,15 @@ $ git fetch upstream
 $ git checkout master
 $ git merge upstream/master
 ```
+3. upstream 설정해두기
+```cmd
+$ git branch --set-upstream-to=upstream/master master
+```
 
 ## 참고자료
 
 * [OSS Guide](https://opensource.guide/ko/how-to-contribute/)
     * 여기를 보면서 많이 참고.
+* [Git 세팅부터 PR 넣기까지 동영상자료](https://egghead.io/lessons/javascript-setting-up-the-project-locally)
+    * GitHub에 대한 전반적인 설명부터 PR까지 자세하게 알려준다.
 
