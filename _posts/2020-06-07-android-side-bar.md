@@ -24,14 +24,15 @@ Drawer를 이용해서 SideBar구현하기
 
 ## 구현 방법
 
-1. 메인 레이아웃을 DrawerLayout으로 바꾼다.
-2. [layout resource에 drawer용으로 resource를 추가한다](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/layout/chatting_room_side_drawer.xml)
-3. 메인 레이아웃에 include 해준다.
+* 메인 레이아웃을 DrawerLayout으로 바꾼다.
+* [layout resource에 drawer용으로 resource를 추가한다](https://github.com/flowertaekk-dev/cloneKakaoTalk/blob/master/app/src/main/res/layout/chatting_room_side_drawer.xml)
+* 메인 레이아웃에 include 해준다.
+
 ```xml
 <include layout="@layout/chatting_room_side_drawer" />
 ```
+* Activity에서 기능구현
 
-4. Activity에서 기능구현
 ```java
 DrawerLayout.openDrawer(Gravity.RIGHT); // 참고자료 참고
 ```
