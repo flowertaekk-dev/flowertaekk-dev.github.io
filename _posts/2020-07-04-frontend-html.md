@@ -51,6 +51,7 @@ HTML basics
 ## Tips for tag usage
 
 * input 태그는 보통 label tag와 함께 자주 쓰인다.
+
 ```html
 <lable for="">Name: </label>
 <input type="text" />
