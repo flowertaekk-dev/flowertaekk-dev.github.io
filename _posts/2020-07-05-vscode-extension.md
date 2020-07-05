@@ -42,6 +42,8 @@ Visual Studio Code 유용한 extensions
   2. Open with ... 클릭하면 새로운 웹브라우저가 켜짐.
 10. Markdown Preview
   * README.md를 preview하면서 작성할 수 있다.
+11. HTML to CSS autocompletion
+  * html쪽에서 입력한 css 요소를 css파일에서도 자동완성 되도록 해줌
 
 ## 참고자료
 
