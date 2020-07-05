@@ -186,3 +186,27 @@ a[href$=".com"] {}
 ### 참고자료
 
 [CSS FlexBox](https://www.youtube.com/watch?v=7neASrWEFEM)
+
+## CSS 변수 지정하기
+
+```css
+:root {
+  --text-color: #f0f4f5;
+  --bacground-color: #fff;
+  --accent-color: #fff;  /* 이런식으로 변수를 지정해서 사용할 수 있다. */
+}
+
+body {
+  color: var(--text-color); /* 이렇게 호출 */
+}
+```
+
+## media query
+
+화면 크기에 따라 동적으로 컴포넌트 위치를 변경할 수 있게 한다.
+
+ex)
+
+```css
+@media screen and (max-width: size) {}
+```
