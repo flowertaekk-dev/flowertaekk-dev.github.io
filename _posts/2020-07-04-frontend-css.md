@@ -94,6 +94,11 @@ a[href$=".com"] {}
   * align-items와의 차이점은?
   * justify-content과 동일한 속성값
 
+#### align-items vs. align-content
+
+* align-content는 라인 사이의 간격(공간)을 조절하기 위해 사용.
+* align-items는 컨테이너 안에서 아이템들을 정렬하기 위해 사용.
+
 ### order
 
 * 아이템의 순서 지정
