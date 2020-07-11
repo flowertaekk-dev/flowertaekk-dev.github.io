@@ -1,11 +1,12 @@
 ---
-title: "Webpack basics"
+title: "Webpack devServer"
 header:
   teaser: "assets/images/markup-syntax-highlighting-teaser.jpg"
 categories:
   - Development
 tags:
   - webpack
+  - devServer
   - basics
 toc: true
 ---
