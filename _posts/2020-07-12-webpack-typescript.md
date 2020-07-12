@@ -58,3 +58,17 @@ tsconfig.json는 ts를 컴파일하기 위한 룰을 설정하는 곳.
     }
 }
 {% endhighlight %}
+
+
+## Setting TypeScript with React
+
+### 1. Create with create-react-app
+
+### 2. Install packages
+
+{% highlight javascript  %}
+npm i --save-dev typescript @types/node @types/react @types/react-dom
+{% endhighlight %}
+
+### 3. App.js를 App.tsx 파일로 변경
+ 
