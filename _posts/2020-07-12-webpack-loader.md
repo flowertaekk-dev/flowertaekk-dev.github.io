@@ -46,3 +46,61 @@ module: {
 ## Tips
 
 * devServer 에 `overlay: true` 를 추가해주면 컴파일 에러 등을 화면에 띄어준다.
+* html loader
+    * html-loader
+    * extract-loader
+    * file-loader
+
+### src 디렉토리의 리소스를 webpack을 이용해서 로딩하는 법
+
+#### 1. webpack config 파일에 관련 설정 추가
+
+{% highlight css  %}
+             {
+                test: /\.html/,
+                use: [
+                    {
+                        loader: "html-loader",
+                        options: {
+                            attributes: {
+                                list: [
+                                    {
+                                        tag: "img",
+                                        attribute: 'src',
+                                        type: "src"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        loader: "extract-loader"
+                    },
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[name].html"
+                        }
+                    },
+                ]
+            },
+            {
+                test: /\.(jpg|gif|png)/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: "images/[name].[ext]"
+                        }
+                    }
+                ]
+            }
+{% endhighlight  %}
+
+#### 2. src/main.js 에서 require문 추가
+
+{% highlight css  %}
+require('./resource-path')
+{% endhighlight  %}
+
+
