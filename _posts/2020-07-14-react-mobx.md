@@ -20,7 +20,7 @@ $ npm i --save mobx mobx-react
 
 ### Decorator
 
-#### 1. `@observable`
+#### 1. `@observable` from mobx
 
 * React의 state와 비슷한 역할.
 * MobX 상에서 변수와 같은 역할을 하고, Store에 넣고 관리하고 싶은 변수는 `@observable` 키워드로 선언한다.
@@ -29,13 +29,24 @@ $ npm i --save mobx mobx-react
 @observable valueToBeStored:string = "hello"
 {% endhighlight  %}
 
-#### 2. `@action`
+#### 2. `@action` from mobx
 
 * React의 setState와 비슷한 역할.
 
 {% highlight javascript %}
 @action changeStoreValue = (value: string) => {
         this.myStore = value;
+}
+{% endhighlight  %}
+
+#### 3. `@Autobind` from core-decorators
+
+* javascript의 this.bind를 자동으로 해주는 데코레이더
+
+{% highlight javascript %}
+@Autobind
+export default class HelloWorld {
+
 }
 {% endhighlight  %}
 
