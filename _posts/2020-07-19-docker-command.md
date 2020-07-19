@@ -66,6 +66,15 @@ $ docker container run --publish 80:80 --detach nginx
 
 * 새로 생성되는 컨테이너의 이름을 설정할 수 있다.
 
+#### --env (-e)
+
+* 생성되는 컨테이너에 환경변수를 전달할 때 사용 된다.
+
+{% highlight cmd %}
+$ docker container run --p 3306:3306 -d -e MYSQL_RANDOM_ROOT_PASSWORD=true  nginx
+{% endhighlight %}
+
+
 ### $ docker container ls
 
 * 현재 실행 중인 container list 보기
@@ -93,3 +102,47 @@ $ docker container run --publish 80:80 --detach nginx
 #### -f
 
 * 실행 중인 컨테이너도 강제로 종료하고 제거한다.
+
+### $ docker ps
+
+* docker에서 실행 중인 프로세스 확인
+
+### $ docker container top
+
+* List running processes in specific container
+
+### $ docker container inspect
+
+* details of one container config
+* show metadata about the continaer (startup config, volumes, networking, etc)
+
+### $ docker container stats
+
+* performance stats for all containers
+* show live performance data for all containers
+
+### $ docker container run -it
+
+* start new container interactively
+  * container 안으로 들어가서 커맨드 조작이 가능할 수 있도록
+* What is the `-it` option?
+  1. `-t` : simulates a real terminal, like what SSH does
+    * pseudo-TTY
+  2. `-i` : keep session open to receive terminal input
+
+### $ docker container exec -it
+
+* run additional command in existing container
+
+{% highlight cmd %}
+$ docker container exec -it (container name) (command)
+$ docker container exec -it mysql bash
+{% endhighlight %}
+
+### $ docker container start 
+
+* 기존 컨테이너를 실행한다
+
+#### -ai
+
+* 기존 컨테이너를 실행하고, 컨테이너로 접속한다.
