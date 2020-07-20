@@ -116,6 +116,14 @@ $ docker container run --p 3306:3306 -d -e MYSQL_RANDOM_ROOT_PASSWORD=true  ngin
 * details of one container config
 * show metadata about the continaer (startup config, volumes, networking, etc)
 
+#### --format
+
+* A common option for formatting the output of commands using "Go templates"
+
+{% highlight cmd %}
+$ docker container inspect --format '{{ .NetworkSettings.IPAddress  }}' (container name)
+{% endhighlight %}
+
 ### $ docker container stats
 
 * performance stats for all containers
@@ -146,3 +154,7 @@ $ docker container exec -it mysql bash
 #### -ai
 
 * 기존 컨테이너를 실행하고, 컨테이너로 접속한다.
+
+### $ docker container port (container name)
+
+* Can check port configuration
