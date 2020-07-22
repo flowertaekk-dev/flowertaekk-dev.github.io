@@ -185,3 +185,15 @@ $ docker container exec -it mysql bash
 ### $ docker network disconnect (network name) (container name)
 
 * Detach a network from container
+
+## DockerHub
+
+### $ docker pull (image name)
+
+* DockerHub 로부터 이미지를 다운받는다.
+
+{% highlight cmd %}
+$ docker pull nginx:(version number)
+{% endhighlight %}
+
+
