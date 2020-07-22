@@ -10,7 +10,7 @@ tags:
 toc: true
 ---
 
-## Docker Command
+## Docker Basic Command
 
 ### docker command line structure
 
@@ -74,6 +74,9 @@ $ docker container run --publish 80:80 --detach nginx
 $ docker container run --p 3306:3306 -d -e MYSQL_RANDOM_ROOT_PASSWORD=true  nginx
 {% endhighlight %}
 
+#### --network (network name)
+
+* 사용할 네트워크를 지정할 수 있다.
 
 ### $ docker container ls
 
@@ -158,3 +161,27 @@ $ docker container exec -it mysql bash
 ### $ docker container port (container name)
 
 * Can check port configuration
+
+## Docker Networks
+
+### $ docker network ls
+
+* Show networks
+
+### $ docker network inspect (network name)
+
+* Inspect a network
+
+### $ docker network create --driver
+
+* Create a network
+
+### $ docker network connect (network name) (container name)
+
+* Attach a network to container
+* Dynamically creates a NIC in a container on an existing virtual network
+  * NIC: Network Interface Card
+
+### $ docker network disconnect (network name) (container name)
+
+* Detach a network from container
