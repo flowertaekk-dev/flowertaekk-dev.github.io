@@ -28,6 +28,7 @@ user/repo:tag
 
 * FROM (image name)
 * ENV (variable name) (value)
+* WORKDIR (path)
 * RUN (command)
 * EXPOSE (port...)
 * CMD ["command"]

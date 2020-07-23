@@ -54,6 +54,10 @@ $ docker container run --publish 80:80 nginx
 
 {% endhighlight %}
 
+#### --rm
+
+* 컨테이너 실행 종료와 동시에 컨테이너를 제거한다.
+
 #### --detach
 
 {% highlight cmd %}
@@ -65,6 +69,17 @@ $ docker container run --publish 80:80 --detach nginx
 #### --name (container name)
 
 * 새로 생성되는 컨테이너의 이름을 설정할 수 있다.
+
+#### -v
+
+* Named volume 이라고 부른다.
+  * 그냥 컨테이너를 생성하면, 어느 volume이 해당 컨테이너의 볼륨이지 알아보기가 힘들기 때문에 이름을 지정해서 volume을 생성하도록 할 수 있다.
+
+{% highlight cmd %}
+$ docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v (volume name):/var/lib/mysql mysql
+
+## /var/lib/mysql 은 mysql의 default mount point다.
+{% endhighlight %}
 
 #### --env (-e)
 
@@ -220,4 +235,27 @@ $ docker pull nginx:(version number)
 
 * Create new tag name
 
+### $ docker image build -t (tag) (path)
 
+* To build with Dockerfile
+
+## Docker System
+
+### $ docker system df
+
+* docker가 사용중인 메모리의 내역을 보여줌
+
+### $ docker system prune
+
+* docker system에 있는 모든 것들을 초기상태만 남기고 제거함.
+* docker system prune보다 하나하나씩 지정해서 삭제하는 것이 더 안전하다. (아래처럼)
+
+#### $ docker image prune
+#### $ docker container prune
+#### $ docker volume prune
+
+## Volumn
+
+### $ docker volume create 
+
+It is required to do this before `$ docker run` to use custom drivers and labels
