@@ -196,4 +196,28 @@ $ docker container exec -it mysql bash
 $ docker pull nginx:(version number)
 {% endhighlight %}
 
+### $ docker image push
+
+* uploads changed layers to a image registry
+
+### $ docker login
+
+* ~/.docker/config.json 에 로그인 정보가 기록되기 때문에 공유컴퓨터에서 로그인 한 경우에는 반드시 `$ docker logout` 할 것.
+
+### $ docker logout
+
+## Images
+
+### $ docker image history (image name)
+
+* Show image history
+
+### $ docker image inspect (image name)
+
+* Return JSON metadata about the image
+
+### $ docker image tag SOURCE_IMGAE[:TAG] TARGET_IMAGE[:TAG]
+
+* Create new tag name
+
 

@@ -18,3 +18,20 @@ toc: true
 in Containers](https://www.udemy.com/course/docker-mastery/learn/lecture/6758364#overview)
   * docker 네트워크 구조에 대해 그림으로 설명해준다.
 
+### Docker Image naming convention
+
+user/repo:tag
+
+* official image에는 user가 생략된다.
+
+## Dockerfile
+
+* FROM (image name)
+* ENV (variable name) (value)
+* RUN (command)
+* EXPOSE (port...)
+* CMD ["command"]
+
+### Dockerfile의 기본 네이밍은 Dockerfile
+
+* 다른 이름으로 만들수도 있다. 다만 실행할 때는 `-f` 옵션과 함께 사용.
