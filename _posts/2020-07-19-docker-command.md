@@ -77,9 +77,16 @@ $ docker container run --publish 80:80 --detach nginx
 
 {% highlight cmd %}
 $ docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v (volume name):/var/lib/mysql mysql
-
 ## /var/lib/mysql 은 mysql의 default mount point다.
 {% endhighlight %}
+
+* Bind Mounting
+
+{% highlight cmd %}
+$ docker container run -v (absolute path in host):(path to container)
+{% endhighlight %}
+
+
 
 #### --env (-e)
 

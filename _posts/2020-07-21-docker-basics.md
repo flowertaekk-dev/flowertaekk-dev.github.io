@@ -36,3 +36,8 @@ user/repo:tag
 ### Dockerfile의 기본 네이밍은 Dockerfile
 
 * 다른 이름으로 만들수도 있다. 다만 실행할 때는 `-f` 옵션과 함께 사용.
+
+### Persistent Data: Bind Mounting
+
+* Maps a host file or directory to a container file or directory
+* Mounting된 볼륨은 실시간 동기화된다.
