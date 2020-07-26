@@ -86,8 +86,6 @@ $ docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v (vo
 $ docker container run -v (absolute path in host):(path to container)
 {% endhighlight %}
 
-
-
 #### --env (-e)
 
 * 생성되는 컨테이너에 환경변수를 전달할 때 사용 된다.

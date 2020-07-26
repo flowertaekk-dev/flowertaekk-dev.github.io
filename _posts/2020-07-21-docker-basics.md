@@ -41,3 +41,21 @@ user/repo:tag
 
 * Maps a host file or directory to a container file or directory
 * Mounting된 볼륨은 실시간 동기화된다.
+
+## Docker Compose
+
+### 사용하는 이유
+
+* Configure relationships between containers
+
+### Docker Compose는 두가지로 구성된다.
+
+1. YAML-formatted file that describes our solution options for
+  * containers
+  * networks
+  * volumes
+2. A CLI tool `docker-compose` used for local dev/test automation with those YAML files.
+
+### Docker Compose file naming convention
+
+* docker-compose.yml is default filename but any can be used with `docker-compose -f`
