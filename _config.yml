@@ -58,7 +58,7 @@ plugins:
 author:
   name     : "Geuntaek Kwon"
   avatar   : "/assets/images/my_pic.jpg"
-  bio      : "Do my best"
+  bio      : "느루 나아가는 개발자"
   location : "Tokyo, Japan"
   links:
     - label: "Website"

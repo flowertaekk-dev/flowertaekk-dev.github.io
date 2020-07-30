@@ -29,6 +29,35 @@ toc: true
 
 * 하나의 Cluster를 관리하는 매니저!
 
+### Overlay란?
+
+* Swarm-wide bridge network driver where containers can communicate across nodes!
+
+#### $ docker network create --driver overlay (network name)
+
+### Routing Mesh
+
+* 들어오는 Packet을 자동으로 로드밸런싱 하는 건가? (공부 필요)
+  * [여기에 자세히 설명되어 있다](https://www.udemy.com/course/docker-mastery/learn/lecture/6790710#overview)
+
+#### Routing Mesh 특징
+
+* Stateless load balancing
+* This Load balancer is at OSI Layer 3 (TCP)
+* 위의 문제 때문에 하나의 cluster에서 두 개 이상의 웹 서비스를 운영하려면 곤란하다.
+  * 이문제는 nginx 등을 이용한 proxy를 이용함으로써 해결 가능! (하다고 한다)
+    * 아직 감이 잘 안 오지만 한 번 만들어보면 감이 오려나
+
+* *감이 왔다갔다한다... 좀 더 알아보자* 
+
+### Swarm으로 cluster 구축하기 위한 port 설정
+
+* TCP port 2377 for cluster management communications
+* TCP and UDP port 7946 for communication among nodes
+* UDP port 4789 for overlay network traffic
+
+[참고](https://docs.docker.com/engine/swarm/swarm-tutorial/#open-protocols-and-ports-between-the-hosts)
+
 ## Command
 
 ### $ docker info
