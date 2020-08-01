@@ -58,6 +58,20 @@ toc: true
 
 [참고](https://docs.docker.com/engine/swarm/swarm-tutorial/#open-protocols-and-ports-between-the-hosts)
 
+### Docker Stack
+
+* `$ docker stack` command를 통해서 docker swarm이 docker-compose.yml 파일을 사용할 수 있게 됐다.
+* Node와 service, volumes, overlay network을 하나로 뭉쳐서 stack이라고 부름
+* docker stack을 사용하기 위해서 docker-compose.yml 파일의 버전이 최소한 *3* 이상 이어야만 한다.
+
+### Docker Secret
+
+* `$ docker secret create (alias) (file name)` 으로 docker 보안 기능을 이용할 수 있다.
+  * `/run/secrets/(alias)`에 저장됨. (혹시 path설정이 필요하면 이 path를 이용할 수도 있다.)
+
+* `$ docker service update --secret-rm`를 사용해서 scret을 삭제할 수 있다.
+  * 다만, psql등에서 사용되고 있다면, psql이 재시작되고, scret정보가 없는 걸 보고 터질 수도 있다?
+
 ## Command
 
 ### $ docker info
@@ -134,3 +148,19 @@ docker swarm init --advertise-addr=(Physical IP)
 ### $ docker node update --role manager (node name)
 
 * worker 노드를 manager 노드로 승진시킬 수 있다!
+
+### docker stack
+
+#### $ docker stack deploy -c (docker-compose.yml)
+
+* docker-compose 파일을 읽어서 stack을 구성한다.
+
+#### $ docker stack services (stack name)
+
+* `$ docker service ls` 와 유사하다.
+  * stack 별로 실행되고 있는 service를 볼 수 있다.
+
+#### $ docker stack ps (stack name)
+
+* stack 내 서비스들이 어느 노드에서 실해외고 있는지와 상태확인 가능
+
