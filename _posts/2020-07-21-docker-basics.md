@@ -59,3 +59,21 @@ user/repo:tag
 ### Docker Compose file naming convention
 
 * docker-compose.yml is default filename but any can be used with `docker-compose -f`
+
+## Docker Healthchecks
+
+* HEALTHCHECK is supported in DOckerfile, Compose YAML, docker run, and Swarm Services.
+* It is running inside of our container, so we can healthcheck a container that has not a exposed port.
+* exit 0 (OK)
+* exit 1 (Error)
+* Three container states: starting, healthy, unhealthy
+
+### To do Healthcheck
+
+* need to add option to Dockerfile like:
+  * `HEALTHCHECK curl -f http://localhost/ || false`
+
+{% highlight cmd  %}
+HEALTHCHECK --timeout=2s --interval=3s --retries=3 \
+  CMD curl -f http://localhost/ || exit 1
+{% endhighlight  %}
