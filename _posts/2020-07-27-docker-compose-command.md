@@ -51,7 +51,7 @@ networks: # Optional, same as docker network create
 
 #### $ docker-compose build
 
-### docker-compose can use `$ docker secret`!?
+### docker-compose can use `$ docker secret`
 
 * No! It just works as though there is docker swarm database and use its secret database.
   * docker-compose는 production용이 아니라는 사실을 기억하자! develop 용일뿐!
@@ -80,10 +80,7 @@ secrets:
 ### docker-compose.yml override
 
 * docker-compose.yml의 override 속성을 통해서 docker-compose.yml 파일을 여러개로 나누어서 사용할 수 있다.
-
-```
-docker-compose.yml
-  - docker-compose.override.yml
-```
+  * parents: docker-compose.yml
+    * child: docker-compose.override.yml
 
 * `$ docker-compose up` 만으로도 자동으로 `docker-compose.override.yml` 파일을 읽어들인다.

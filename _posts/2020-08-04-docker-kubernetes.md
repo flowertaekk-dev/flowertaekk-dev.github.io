@@ -6,7 +6,7 @@ categories:
   - Development
 tags:
   - docker
-  - kubernetes
+  - Kubernetes
 toc: true
 ---
 
@@ -23,14 +23,14 @@ toc: true
 ### Advantages of Swarm
 
 * Easy to manage
-* Comes with Docker 
-* Runs anywhere Docker does 
-* Secure by default 
-* Easier to troubleshoot 
+* Comes with Docker
+* Runs anywhere Docker does
+* Secure by default
+* Easier to troubleshoot
 
 ### Advantages of Kubernetes
 
-* a bit difficult(?) but more functional 
-* Clouds will deploy/manage Kubernetes for us 
-* Widest adoption and community 
-* Trendy 
+* a bit difficult(?) but more functional
+* Clouds will deploy/manage Kubernetes for us
+* Widest adoption and community
+* Trendy

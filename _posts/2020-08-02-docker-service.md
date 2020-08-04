@@ -20,41 +20,40 @@ toc: true
 
 {% highlight cmd  %}
 $ docker service update --image (image name) (service name)
-{% end highlight  %}
+{% endhighlight  %}
 
-* It should work as the same as:
+##### It should work as the same as:
 
 {% highlight cmd  %}
 $ docker stack deploy -c (docker-compose.yml file) (stack name)
-{% end highlight  %}
+{% endhighlight  %}
 
 #### To add an environment variable
 
 {% highlight cmd  %}
 $ docker servie update --env-add (variable name)=(value)
-{% end highlight  %}
+{% endhighlight  %}
 
 #### To add a port to a service being used
 
 {% highlight cmd  %}
 $ docker servie update --publish-add (port number):(container port)
-{% end highlight  %}
+{% endhighlight  %}
 
 #### To remove a port being used
 
 {% highlight cmd  %}
 $ docker servie update --publish-rm (port number)
-{% end highlight  %}
+{% endhighlight  %}
 
 #### To rebalance tasks across nodes
 
 {% highlight cmd  %}
 $ docker servie update --force (service name)
-{% end highlight  %}
+{% endhighlight  %}
 
 ### `$ docker service scale`
 
 {% highlight cmd  %}
 $ docker servie scale (service name)=(the number of replicas) (service name)=(the number of replicas)
-{% end highlight  %}
-
+{% endhighlight  %}
