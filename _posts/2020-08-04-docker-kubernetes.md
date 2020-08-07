@@ -61,6 +61,19 @@ $ snap microk8s --classic --channel=1.18/stable
 $ microk8s.enable dns
 {% endhighlight %}
 
+### Service Types
+
+1. ClusterIP (default)
+  * It is only good in the cluster. REMEMBER THIS!
+2. NodePort
+  * Port to connect to outside of cluster.
+3. LoadBalancer
+  * Controls a LB endpoint external to the cluster.
+4. ExternalName
+  * Adds CNAME DNS record to CoreDNS only.
+  * Not used for Pods, but for giving ods a DNS name to use for somthing outside Kubernetes
+  * Not used that many.
+
 ### Command
 
 #### There are 3 ways to create pods from the kubectl CLI!
@@ -99,3 +112,17 @@ $ microk8s.enable dns
 
 * It is very simliar to `inspect` command in docker
 
+#### `$ kubectl expose deployment/(pod name) --port (port number)`
+
+* To open port.
+* Create clusterIP
+  * clusterIP는 내부에서만 접속 가능하다! host OS 에서는 안 되는게 정상!
+    * Linux host에서는 가능!
+  * curl 등으로 확인하려면 새로운 pod를 생성해서 bash로 들어간 후에 curl을 날릴 수 있다.
+    * service name이 DNS가 되기 때문에 `curl my-httpd:(port)`로 쓸 수 있다.
+* ex) `kubectl expose deploy/(node name) --port (port num) --name (alias) --type NodePort`
+* ex) `kubectl expose deploy/(node name) --port (port num) --name (alias) --type LoadBalancer`
+
+#### `$ kubectl delete service/(service name)`
+
+* Delete service from kubernetes
