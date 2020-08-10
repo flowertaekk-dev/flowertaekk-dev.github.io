@@ -74,6 +74,34 @@ $ microk8s.enable dns
   * Not used for Pods, but for giving ods a DNS name to use for somthing outside Kubernetes
   * Not used that many.
 
+### Imperative vs. Declarative
+
+* Imperative: Focus on how a program operates
+  * We care of every single process
+* Declarative Focus on what a program should accomplish
+  * We don't care process, but we just want it to run!
+
+#### Imperative
+
+* Ex) kubectl run, kubectl create deployment, kubectl update
+* Imperative is easier when you know the state
+* Imperative is easier to get started
+* Imperative is easier for humans at the CLI
+* Imperative is NOT easy to automate
+
+#### Declarative
+
+* Ex) kubectl apply -f prac.yaml
+* Same command each time
+* Resources can be all in a file, or many files
+  * *The point is that everything works with yaml file*
+* More work than kubectl run for just starting a pod
+* The easiest way to automate
+
+### GitOps
+
+* Kubernetes 를 이용해서 배포를 선언적으로 한다는 의미라는데 공부가 필요!!!!
+
 ### Command
 
 #### There are 3 ways to create pods from the kubectl CLI!
