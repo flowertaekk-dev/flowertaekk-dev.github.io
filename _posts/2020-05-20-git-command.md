@@ -64,6 +64,19 @@ toc: true
     * 기존 commit 수정
     * 실수로 --amend했을 경우 $ git reset --soft @{1} 로 되돌릴 수 있다.
 
+### $ git filter-branch
+
+  * Git의 히스토리가 필요 이상으로 길어지거나 암호 파일등을 실수로 커밋했을 때 제거하는 커맨드
+    * ex) `$git filter-branch --prune-empty --index-filter 'git rm --cached --ignore-unmatch <target file>' -- --all`
+  * 단점은 commit id가 변경되기 때문에 이미 공유된 커밋에 대해서는 자제하는 편이 좋다. 어쩔 수 없이 해야만 한다면, 팀원들과 공유 후에 실행하는게 절대 원칙!
+
+#### BFG Repo-Cleaner 
+
+  * ex) `java -jar bfg-1.13.0.jar --strip-blobs-with-ids <ids.txt> repository.git`
+  * `ids.txt` 파일은 지우고자 하는 파일의 hash 값을 넣는다.
+    * `$ git hash-object <file name>`
+  * `repository.git` 은 `$ git clone --mirror <url>` 로 얻을 수 있다.
+    * 단, repository 디렉토리를 받아오기 때문에 여기서 무언가를 변경하고 push를 하게 되면 모든 브랜치에 영향이 있을 수 있다는 점 주의!!!
 
 ## Merge
 
@@ -74,3 +87,18 @@ toc: true
 
   * $ git diff --check
     * 추가된 공백을 확인할 수 있다. 불필요한 공백을 커밋 전에 정리할 수 있다.
+
+## 로컬에서 깃 서버 만들어서 테스트하기
+
+  1. `$ mkdir ~/gittest.git && cd ~/gittest.git`
+  2. `$ git init --bare`
+      * 비어있는 repository를 생성
+  3. `$ mkdir ~/Desktop/local && cd ~/Desktop/local`
+  4. `$ git clone ~/gittest.git`
+
+## Repository 복사하기
+
+  1. `$ git clone <url>`
+  2. `$ git remote remove origin`
+  3. `$ git remote add origin <new-repository-url>`
+  4. 끝!
