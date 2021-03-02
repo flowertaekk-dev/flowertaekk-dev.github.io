@@ -18,15 +18,8 @@ toc: true
 ### What is the benifit of using orchestration?
 
 * It automatically applies changes. (Is it the most important benefit??)
+    * Servers + Change Rate = Benefit of orchestration.
 * It enables for us to control lots of servers at once.
-
-### Advantages of Swarm
-
-* Easy to manage
-* Comes with Docker
-* Runs anywhere Docker does
-* Secure by default
-* Easier to troubleshoot
 
 ### Advantages of Kubernetes
 
@@ -42,12 +35,31 @@ toc: true
 * Node: Single server in the Kubernetes cluster
 * Kubelet: Kubernetes agent running on nodes(workers)
 * Control Plane: Similar to Manager in Swarm but it also means group of masters
-  * Sometimes it is called as master
-* Pod: One or more containers running together on one Node
+  * master node 들의 집합이라고 보면 될 듯!
+* *Pod* : One or more containers running together on one Node
 * Controller: For creating/updating pods and other objects
 * Service: Network endpoint to connect to a pod
+* etcd: Distributed storage system -> DB
+  * 발음은 엣씨디..
+
+### Node Structure
+
+#### Master
+
+* etcd
+* API
+* Scheduler
+* Controller manager
+* Core DNS
+
+#### Node (worker)
+
+* kublet (agent)
+* kube-proxy : controls network
 
 ### Local setup
+
+* MicroK8s : ubuntu 버전으로 나왔지만 다른 OS에서도 잘 작동함. 
 
 #### 1.
 
@@ -61,57 +73,29 @@ $ snap microk8s --classic --channel=1.18/stable
 $ microk8s.enable dns
 {% endhighlight %}
 
-### Service Types
+참고: `microk8s.xxx` 명령어로 다양한 조작 가능!
 
-1. ClusterIP (default)
-  * It is only good in the cluster. REMEMBER THIS!
-2. NodePort
-  * Port to connect to outside of cluster.
-3. LoadBalancer
-  * Controls a LB endpoint external to the cluster.
-4. ExternalName
-  * Adds CNAME DNS record to CoreDNS only.
-  * Not used for Pods, but for giving ods a DNS name to use for somthing outside Kubernetes
-  * Not used that many.
+##### Tips
 
-### Imperative vs. Declarative
+`alias kubectl=microk8s.kubectl` 설정해놓는걸 추천`
 
-* Imperative: Focus on how a program operates
-  * We care of every single process
-* Declarative Focus on what a program should accomplish
-  * We don't care process, but we just want it to run!
+### kubectl 가동 방법
 
-#### Imperative
+#### `kubectl run`
 
-* Ex) kubectl run, kubectl create deployment, kubectl update
-* Imperative is easier when you know the state
-* Imperative is easier to get started
-* Imperative is easier for humans at the CLI
-* Imperative is NOT easy to automate
+* `kubectl run` only create single pods.
+    * ex) `$ kubectl run <Pods name> --image <image name>`
 
-#### Declarative
+#### `kubectl create`
 
-* Ex) kubectl apply -f prac.yaml
-* Same command each time
-* Resources can be all in a file, or many files
-  * *The point is that everything works with yaml file*
-* More work than kubectl run for just starting a pod
-* The easiest way to automate
+* creates replicaSet
+    * ex) `$ kubectl create <Deployment> <Pods> --image <image name>`
 
-### GitOps
+#### `kubectl apply`
 
-* Kubernetes 를 이용해서 배포를 선언적으로 한다는 의미라는데 공부가 필요!!!!
+* yml 하고 같이 사용됨.
 
 ### Command
-
-#### There are 3 ways to create pods from the kubectl CLI!
-
-1. `$ kubectl run` : similiar to `$ docker run`
-  * ex) `$ kubectl run my-nginx --image nginx`
-2. `$ kubectl create` : similiar to `$ docker swarm`
-  * ex) `$ kubectl create deployment my-nginx --image nginx`
-3. `$ kubectl apply` : similiar to `$ docker stack`
-
 
 #### `$ kubectl get pod`
 
@@ -122,23 +106,30 @@ $ microk8s.enable dns
 
 * List of all objects on different layers
 
-#### `$ kubectl delete pod (pod name)`
+#### `$ kubectl delete <replicaSet, pod> <pod name>`
 
 * Delete Pod
 
-#### `$ kubectl scale deploy/(node name) --replicas (num)`
+#### `$ kubectl scale <replicaSet name> <pod name> --replicas <num>`
 
 * Update the number of replicas
-* It is the same as `4 kubectl scale deployment (node name) --replicas (num)`
+* It is the same as `4 kubectl scale deployment (node name) --replicas <num>`
+* `kubectl scale <short name replicaSets>/<pod name> --replicas <num>`
+    * ex) kubectl scale deploy/my-httpd --replicas <num>
+        * deploy = deployment = deployments
 
 #### `$ kubectl logs deploy/(pod name)`
 
 * option
-  * --follow: works like -f option with tail
+    * --follow: works like -f option with tail
+        * ex) `kubectl logs deploy/my-apache --follow --tail 1`
+* 컨테이너 내부 로그 확인
+* 많은 pod를 가지고 있더라도 하나만 가지고 와서 보여준다. 첫 라인에서 확인 가능.
 
-#### `$ kubectl describe pod (pod name)`
+#### `$ kubectl describe <resource type> <pod name>`
 
 * It is very simliar to `inspect` command in docker
+* 자세한 로그 확인 가능. 컨테이너 사양에 대해서도 확인 가능.
 
 #### `$ kubectl expose deployment/(pod name) --port (port number)`
 
