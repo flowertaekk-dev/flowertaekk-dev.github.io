@@ -42,6 +42,21 @@ toc: true
 * etcd: Distributed storage system -> DB
   * 발음은 엣씨디..
 
+### About Service
+
+#### ClusterIP
+
+* cluster 내에서 사용되는 IP
+
+#### NodePort
+
+* 다른 노드 또는 외부에서 접근할 수 있는 IP
+
+#### LoadBalancer
+
+* cluster로 통하는 LB의 endpoint를 관리.
+* Only availabel when infra provider gives us a LB (AWS's ELB... etc..)
+
 ### Node Structure
 
 #### Master
@@ -131,10 +146,11 @@ $ microk8s.enable dns
 * It is very simliar to `inspect` command in docker
 * 자세한 로그 확인 가능. 컨테이너 사양에 대해서도 확인 가능.
 
-#### `$ kubectl expose deployment/(pod name) --port (port number)`
+#### `$ kubectl expose deployment/<pod name> --port <port number>`
 
 * To open port.
 * Create clusterIP
+  * expost command로 서비스를 생성하는 것!
   * clusterIP는 내부에서만 접속 가능하다! host OS 에서는 안 되는게 정상!
     * Linux host에서는 가능!
   * curl 등으로 확인하려면 새로운 pod를 생성해서 bash로 들어간 후에 curl을 날릴 수 있다.
@@ -142,6 +158,13 @@ $ microk8s.enable dns
 * ex) `kubectl expose deploy/(node name) --port (port num) --name (alias) --type NodePort`
 * ex) `kubectl expose deploy/(node name) --port (port num) --name (alias) --type LoadBalancer`
 
-#### `$ kubectl delete service/(service name)`
+#### NodePort 서비스 추가하기
 
-* Delete service from kubernetes
+* `$ kubectl expose <resource name>/<pods name> --port <port number> --name <nodePort name> --type NodePort`
+
+* `$ kubectl get service` 를 해보면 추가되는걸 알 수 있는데 포트가 0000:30000 형식으로 되어있다. 
+    * <cluster IP>:<외부에 노출되는 IP> 
+
+#### LoadBalancer 서비스 추가하기
+
+* `$ kubectl expose <resource name>/<pods>name> --port <port number> --name <loadBalancer name> --type LoadBalancer`
