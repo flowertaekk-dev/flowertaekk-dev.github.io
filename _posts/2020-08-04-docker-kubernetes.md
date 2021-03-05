@@ -109,6 +109,40 @@ $ microk8s.enable dns
 #### `kubectl apply`
 
 * yml 하고 같이 사용됨.
+* create/update resources in a file.
+    * `kubectl apply -f myfile.yaml`
+* create/update a whole directory of yaml
+    * `kubectl apply -f myyaml/`
+* create/update from a URL
+    * `kubectl apply -f https://my.com/pod.yml`
+        * 이 커맨드는 시작 전에 curl 등으로 내용을 한 번 확인하고 실행하는걸 추천
+
+### YAML 구조
+
+#### 4 가지 요소는 무조건 포함해야함
+
+* apiVersion
+* kind
+* metadata
+* spec
+
+### Build YAML files
+
+* kind: We can get a list of resources the cluster supports
+    * `kubectl api-resources` 로 리소스 종류를 확인할 수 있음. Kind도!
+* apiVersion: We can get the API versions the cluster supports
+    * `kubectl api-versions` 로 확인 가능
+* Tips: *kind + apiVersion* 은 세트로 생각할 것!
+* metadata: only name is required
+* spec: Where all the action is at!
+
+#### Build YAML spec
+
+* `kubectl explain services --recursive`
+    We can get all the keys each *kind* supports
+* `kubectl explain services.spec`
+    * Spec에 관련된 정보만 얻을 수 있음
+        * `kubectl explain services.spec.type`
 
 ### Command
 
