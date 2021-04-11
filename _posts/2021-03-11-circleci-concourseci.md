@@ -33,6 +33,10 @@ CICD를 도입하기 위해 조사 중인 2가지 툴인 `CircleCI` 와 `Concour
 ### CircleCI
 
 * Git 에 연동하는 과정에서 기본 세팅이 이루어진 yaml 생성 등의 조작이 이루어진다.
+* 다양한 캐시 기능을 통해서 속도 개선 등이 가능하다.
+* SSH 를 통해 build issue 디버깅이 가능하다.
+* 여러 프로젝트를 갖고 있을 때 병렬 처리가 가능하다. (한 번에 여러 프로젝트를 빌드 및 테스트 가능.)
+    * https://circleci.com/docs/2.0/about-circleci/?section=getting-started#benefits-of-circleci
 
 ### Concourse CI
 
