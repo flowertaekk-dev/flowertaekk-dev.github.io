@@ -37,6 +37,9 @@ CICD를 도입하기 위해 조사 중인 2가지 툴인 `CircleCI` 와 `Concour
 * SSH 를 통해 build issue 디버깅이 가능하다.
 * 여러 프로젝트를 갖고 있을 때 병렬 처리가 가능하다. (한 번에 여러 프로젝트를 빌드 및 테스트 가능.)
     * https://circleci.com/docs/2.0/about-circleci/?section=getting-started#benefits-of-circleci
+* `GitHub + EC2 + CircleCI` 를 구현하려면 아마도 이 두 가지 패턴을 사용해야 할 듯. (어느게 좋을지는 생각과 공부를 해봐야 할 듯)
+		1. circle-ci가 build -> AWS S3 에 build 결과물 저장 -> AWS Code Deploy가 S3에서 build 결과물을 불러와서 배포 시작
+		2. circle-ci가 build -> AWS Security Group 에 circle-ci 가 EC2 에 접근할 수 있도록 권한 부여 -> EC2 에 직접 build 결과물 scp
 
 ### Concourse CI
 
