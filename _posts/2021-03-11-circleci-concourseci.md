@@ -49,6 +49,10 @@ CICD를 도입하기 위해 조사 중인 2가지 툴인 `CircleCI` 와 `Concour
 * Git 연동을 하려면 YAML을 통한 resource 설정이 필요. [stackoverflow 관련 내용](https://stackoverflow.com/questions/51310079/concourse-webhook-to-git) , [git-resource 설정 리드미](https://github.com/concourse/git-resource)
 
 
+## 블로그 정리
+
+* [circleci](https://flowertaekk.tistory.com/17)
+* [Concourse CI](https://flowertaekk.tistory.com/18)
 
 ## 공식 튜토리얼
 
